@@ -54,7 +54,12 @@ pipeline {
                 }
             }
         }
-        
+
+        stage('Qualitygate analysis') {
+            steps{
+                waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token' 
+            }
+        }
         
         stage('publish to nexus') {
             steps {
