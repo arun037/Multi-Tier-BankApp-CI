@@ -15,6 +15,13 @@ pipeline {
     }
 
     stages {
+         stage('clanws') {
+            steps {
+                cleanWs ()
+            }
+        }
+
+        
         stage('git checkout') {
             steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/arun037/Multi-Tier-BankApp-CI.git']])
