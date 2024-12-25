@@ -67,9 +67,9 @@ pipeline {
             }
         }
 
-       stage('trivy image-scan') {
+        stage('docker image scan') {
             steps {
-                sh 'trivy image --format table -o image.html arunagri03/bankapp:${params.IMAGE_VERSION}'
+                sh "trivy image --format table -o image.html arunagri03/bankapp:${params.IMAGE_VERSION}"
             }
         }
         
